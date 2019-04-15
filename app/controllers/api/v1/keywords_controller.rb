@@ -2,7 +2,7 @@ class Api::V1::KeywordsController < ApplicationController
 before_action :find_keyword, only: [:show]
 
   def index
-  	@keywords = keyword.all
+  	@keywords = Keyword.all
   	render json: @keywords
   end
 

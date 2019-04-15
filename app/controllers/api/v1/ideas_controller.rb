@@ -2,7 +2,7 @@ class Api::V1::IdeasController < ApplicationController
   before_action :find_idea, only: [:show]
 
   def index
-  	@ideas = idea.all
+  	@ideas = Idea.all
   	render json: @ideas
   end
 

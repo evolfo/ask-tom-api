@@ -2,7 +2,7 @@ class Api::V1::ToolsController < ApplicationController
   before_action :find_tool, only: [:show]
 
   def index
-  	@tools = tool.all
+  	@tools = Tool.all
   	render json: @tools
   end
 
