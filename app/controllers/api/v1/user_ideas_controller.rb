@@ -21,6 +21,6 @@ class Api::V1::Useruser_ideasController < ApplicationController
   private
 
   def user_idea_params
-  	params.permit(:type)
+  	params.permit(:user_id, :idea_id)
   end
 end

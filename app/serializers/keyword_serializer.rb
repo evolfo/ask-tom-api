@@ -1,5 +1,5 @@
 class KeywordSerializer < ActiveModel::Serializer
-  attributes :id, :subject, :type, :purpose
+  attributes :id, :subject, :keyword_type, :purpose
 
   
 end

@@ -22,7 +22,7 @@ class Api::V1::IdeasController < ApplicationController
   private
 
   def idea_params
-  	params.permit(:type)
+  	params.permit(:idea_type)
   end
 
   def find_idea
