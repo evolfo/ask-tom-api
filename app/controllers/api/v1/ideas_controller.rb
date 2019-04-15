@@ -1,6 +1,8 @@
 class Api::V1::IdeasController < ApplicationController
   before_action :find_idea, only: [:show]
 
+  skip_before_action :authorized, only: [:create, :index]
+
   def index
   	@ideas = Idea.all
   	render json: @ideas
