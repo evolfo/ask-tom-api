@@ -3,6 +3,13 @@ require 'jwt'
 class Api::V1::AuthController < ApplicationController
 	skip_before_action :authorized, only: [:create]
 
+	def show
+	    @token = decoded_token
+	    @user_id = @token[0]['user_id']
+	    @user = User.find(@user_id)
+	    render json: { user: @user }
+  	end
+
 	def create
 	  @user = User.find_by(name: user_login_params[:name])
 
