@@ -1,6 +1,8 @@
 class Api::V1::ToolsController < ApplicationController
   before_action :find_tool, only: [:show]
 
+  skip_before_action :authorized, only: [:index, :create]
+
   def index
   	@tools = Tool.all
   	render json: @tools
