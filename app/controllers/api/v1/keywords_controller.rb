@@ -1,6 +1,8 @@
 class Api::V1::KeywordsController < ApplicationController
 before_action :find_keyword, only: [:show, :update]
 
+skip_before_action :authorized, only: [:create, :index, :show]
+
   def index
   	@keywords = Keyword.all
   	render json: @keywords
