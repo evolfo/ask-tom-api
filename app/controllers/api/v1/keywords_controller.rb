@@ -33,7 +33,7 @@ skip_before_action :authorized, only: [:create, :index, :show, :update]
   private
 
   def keyword_params
-  	params.permit(:subject, :keyword_type, :purpose)
+  	params.permit(subject: [], keyword_type: [], purpose: [])
   end
 
   def find_keyword
