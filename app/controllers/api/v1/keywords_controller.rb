@@ -1,5 +1,5 @@
 class Api::V1::KeywordsController < ApplicationController
-before_action :find_keyword, only: [:show]
+before_action :find_keyword, only: [:show, :update]
 
   def index
   	@keywords = Keyword.all
@@ -19,10 +19,19 @@ before_action :find_keyword, only: [:show]
   	end
   end
 
+  def update
+    @keyword.update(keyword_params)
+    if @keyword.valid?
+      render json: @keyword
+    else
+      render json: { errors: @keyword.errors.full_messages }, status: :unprocessible_entity
+    end
+  end
+
   private
 
   def keyword_params
-  	params.permit(:purpose, :keyword_type, :tools, :ideas)
+  	params.permit(:subject, :keyword_type, :purpose)
   end
 
   def find_keyword

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       post '/login', to: 'auth#create'
       resources :tools, only: [:index, :create, :show]
       resources :ideas, only: [:index, :create, :show]
-      resources :keywords, only: [:index, :create, :show]
+      resources :keywords, only: [:index, :create, :show, :update]
     end
   end
 end
