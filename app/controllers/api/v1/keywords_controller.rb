@@ -22,7 +22,7 @@ before_action :find_keyword, only: [:show]
   private
 
   def keyword_params
-  	params.permit(:purpose, :type, :tools, :ideas)
+  	params.permit(:purpose, :keyword_type, :tools, :ideas)
   end
 
   def find_keyword
