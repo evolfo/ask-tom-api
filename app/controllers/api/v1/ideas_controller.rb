@@ -11,7 +11,7 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def create
-  	@idea = idea.create(idea_params)
+  	@idea = Idea.create(idea_params)
   	if @idea.valid?
   	  render json: @idea, status: :created
   	else

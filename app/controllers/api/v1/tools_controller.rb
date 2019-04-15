@@ -11,7 +11,7 @@ class Api::V1::ToolsController < ApplicationController
   end
 
   def create
-  	@tool = tool.create(tool_params)
+  	@tool = Tool.create(tool_params)
   	if @tool.valid?
   	  render json: @tool, status: :created
   	else

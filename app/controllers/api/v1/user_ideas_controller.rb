@@ -1,6 +1,6 @@
 class Api::V1::Useruser_ideasController < ApplicationController
   def create
-  	@user_idea = user_idea.create(user_idea_params)
+  	@user_idea = UserIdea.create(user_idea_params)
   	if @user_idea.valid?
   	  render json: @user_idea, status: :created
   	else
@@ -9,7 +9,7 @@ class Api::V1::Useruser_ideasController < ApplicationController
   end
 
   def update
-  	@user_idea = user_idea.find(params[:id])
+  	@user_idea = UserIdea.find(params[:id])
   	@user_idea.update(user_idea_params)
   	if @user_idea.save
   	  render json: @user_idea, status: :accepted

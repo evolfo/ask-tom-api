@@ -11,7 +11,7 @@ before_action :find_keyword, only: [:show]
   end
 
   def create
-  	@keyword = keyword.create(keyword_params)
+  	@keyword = Keyword.create(keyword_params)
   	if @keyword.valid?
   	  render json: @keyword, status: :created
   	else
