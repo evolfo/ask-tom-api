@@ -26,6 +26,6 @@ class Api::V1::ToolsController < ApplicationController
   end
 
   def find_tool
-  	@tool = tool.find(params[:id])
+  	@tool = Tool.find(params[:id])
   end
 end

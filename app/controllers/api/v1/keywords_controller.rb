@@ -26,6 +26,6 @@ before_action :find_keyword, only: [:show]
   end
 
   def find_keyword
-  	@keyword = keyword.find(params[:id])
+  	@keyword = Keyword.find(params[:id])
   end
 end

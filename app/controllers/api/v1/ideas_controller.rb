@@ -26,6 +26,6 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def find_idea
-  	@idea = idea.find(params[:id])
+  	@idea = Idea.find(params[:id])
   end
 end
