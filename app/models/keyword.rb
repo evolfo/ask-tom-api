@@ -12,7 +12,7 @@ class Keyword < ApplicationRecord
 	validate :string_length
 
 	def string_length
-		if subject.last.length || keyword_type.last.length || purpose.last.length > 15
+		if subject.last.length > 15 || keyword_type.last.length > 15 || purpose.last.length > 15
 			errors.add(:subject, "STOP PLZ")
 		end
 	end
