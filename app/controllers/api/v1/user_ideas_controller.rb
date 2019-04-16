@@ -1,6 +1,6 @@
 class Api::V1::UserIdeasController < ApplicationController
 
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:index, :create]
 
   def index
     @user_udeas = UserIdea.all
