@@ -1,24 +1,24 @@
 class Keyword < ApplicationRecord
-	validates :subject, format: { with: /\A[a-zA-Z\s]+\z/i, message: "can only contain letters." }
+	validates :subject, format: { with: /[a-zA-Z0-9\s]+/, message: "can only contain letters." }
 	validates_length_of :subject, maximum: 15
 
-	validates :keyword_type, format: { with: /\A[a-zA-Z\s]+\z/i, message: "can only contain letters." }
+	validates :keyword_type, format: { with: /[a-zA-Z0-9\s]+/, message: "can only contain letters." }
 	validates_length_of :keyword_type, maximum: 15
 
-	validates :purpose, format: { with: /\A[a-zA-Z\s]+\z/i, message: "can only contain letters." }
+	validates :purpose, format: { with: /[a-zA-Z0-9\s]+/, message: "can only contain letters." }
 	validates_length_of :purpose, maximum: 15
 
 	validate :block_obscenity
 
 	def block_obscenity
-		if swear_words.include?(subject)
-			errors.add(:name, "U A WAP")
+		if swear_words.include?(subject.last)
+			errors.add(:subject, "U A WAP")
 		end
-		if swear_words.include?(keyword_type)
-			errors.add(:name, "U A WAP")
+		if swear_words.include?(keyword_type.last)
+			errors.add(:keyword_type, "U A WAP")
 		end
-		if swear_words.include?(purpose)
-			errors.add(:name, "U A WAP")
+		if swear_words.include?(purpose.last)
+			errors.add(:purpose, "U A WAP")
 		end
 	end
 
