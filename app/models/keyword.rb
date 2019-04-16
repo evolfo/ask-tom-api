@@ -9,6 +9,13 @@ class Keyword < ApplicationRecord
 	validates_length_of :purpose, maximum: 15
 
 	validate :block_obscenity
+	validate :string_length
+
+	def string_length
+		if subject.length || keyword_type.length || purpose.length > 15
+			errors.add(:subject, "STOP PLZ")
+		end
+	end
 
 	def block_obscenity
 		if swear_words.include?(subject.last)
