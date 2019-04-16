@@ -7,7 +7,7 @@ class Api::V1::UserIdeasController < ApplicationController
   	if @user_idea.valid?
   	  render json: @user_idea, status: :created
   	else
-  	  render json: { errors: @user_idea.errors.full_messages }, status: unprocessible_entity
+  	  render json: { errors: @user_idea.errors.full_messages }, status: :unprocessible_entity
   	end
   end
 
