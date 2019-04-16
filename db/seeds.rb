@@ -6,10 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
 Tool.destroy_all
 Keyword.destroy_all
-UserIdea.destroy_all
 
 jelly = User.create(name: "jelly")
 tracy = User.create(name: "jelly2")
