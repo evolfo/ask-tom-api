@@ -31,8 +31,6 @@ class Api::V1::AuthController < ApplicationController
  #      }, status: :unauthorized
  #    end
 
-  end
-
 	private
 
 	def user_login_params
