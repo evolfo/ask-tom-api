@@ -1,4 +1,4 @@
-class Api::V1::Useruser_ideasController < ApplicationController
+class Api::V1::UserIdeasController < ApplicationController
   def create
   	@user_idea = UserIdea.create(user_idea_params)
   	if @user_idea.valid?

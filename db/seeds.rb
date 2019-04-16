@@ -16,12 +16,14 @@ tracy = User.create(name: "jelly2")
 shemar = User.create(name: "Tom Wap")
 shemar = User.create(name: "Hey Shemar")
 
-Tool.create(name: "Phaser", language: "Javascript", difficulty: 9, mod: [3], purpose: "games")
-Tool.create(name: "P5", language: "Javascript", difficulty: 7, mod: [3], purpose: "games")
-Tool.create(name: "TTY Prompt", language: "Ruby", difficulty: 1, mod: [1], purpose: "cli")
-Tool.create(name: "Three.js", language: "Javascript", difficulty: 10, mod: [3], purpose: "games")
-Tool.create(name: "Bootstrap", language: "CSS", difficulty: 3, mod: [2, 3, 4, 5], purpose: "website")
-Tool.create(name: "Semantic UI", language: "CSS", difficulty: 3, mod: [2, 3, 4, 5], purpose: "website")
+Tool.create([
+	name: "Phaser", language: "Javascript", difficulty: 9, mod: [3], purpose: "games",
+	name: "P5", language: "Javascript", difficulty: 7, mod: [3], purpose: "games",
+	name: "TTY Prompt", language: "Ruby", difficulty: 1, mod: [1], purpose: "cli",
+	name: "Three.js", language: "Javascript", difficulty: 10, mod: [3], purpose: "games",
+	name: "Bootstrap", language: "CSS", difficulty: 3, mod: [2, 3, 4, 5], purpose: "website",
+	name: "Semantic UI", language: "CSS", difficulty: 3, mod: [2, 3, 4, 5], purpose: "website"
+])
 
 Keyword.create(subject: ['educational', 'meaningful', 'health care', 'sports', 'music', 'management'], keyword_type: ['Game', 'CLI', 'Todo List', 'Scheduler', 'Blog'], purpose: ['Dogs', 'Jeff', 'Kids', 'Musicians', 'Managers'])
 
