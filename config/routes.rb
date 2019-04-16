@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get "/current_user", to: "auth#show"
       resources :tools, only: [:index, :create, :show]
       resources :ideas, only: [:index, :create, :show]
+      resources :user_ideas, only: [:create, :delete]
       resources :keywords, only: [:index, :create, :show, :update]
     end
   end

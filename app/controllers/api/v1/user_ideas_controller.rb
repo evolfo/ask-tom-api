@@ -8,16 +8,6 @@ class Api::V1::UserIdeasController < ApplicationController
   	end
   end
 
-  def update
-  	@user_idea = UserIdea.find(params[:id])
-  	@user_idea.update(user_idea_params)
-  	if @user_idea.save
-  	  render json: @user_idea, status: :accepted
-  	else
-  	  render json: { errors: @user_idea.errors.full_messages }, status: unprocessible_entity
-  	end
-  end
-
   private
 
   def user_idea_params
