@@ -3,7 +3,7 @@ class Api::V1::UserIdeasController < ApplicationController
   skip_before_action :authorized, only: [:index, :create]
 
   def index
-    @user_udeas = UserIdea.all
+    @user_ideas = UserIdea.all
     render json: @user_ideas
   end
 
