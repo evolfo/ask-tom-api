@@ -1,4 +1,7 @@
 class Api::V1::UserIdeasController < ApplicationController
+
+  skip_before_action :authorized, only: [:create]
+
   def create
   	@user_idea = UserIdea.create(user_idea_params)
   	if @user_idea.valid?
