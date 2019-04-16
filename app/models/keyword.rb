@@ -11,7 +11,13 @@ class Keyword < ApplicationRecord
 	validate :block_obscenity
 
 	def block_obscenity
-		if swear_words.include?(name)
+		if swear_words.include?(subject)
+			errors.add(:name, "U A WAP")
+		end
+		if swear_words.include?(keyword_type)
+			errors.add(:name, "U A WAP")
+		end
+		if swear_words.include?(purpose)
 			errors.add(:name, "U A WAP")
 		end
 	end
