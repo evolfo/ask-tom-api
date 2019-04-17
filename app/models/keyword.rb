@@ -1,16 +1,61 @@
+require 'net/http'
+require 'open-uri'
+require 'json'
+
 class Keyword < ApplicationRecord
-	validates :subject, format: { with: /[a-zA-Z0-9\s]+/, message: "can only contain letters." }
+	validates :subject, format: { with: /[a-zA-Z\s]+/, message: "can only contain letters." }
 	validates_length_of :subject, maximum: 15
 
-	validates :keyword_type, format: { with: /[a-zA-Z0-9\s]+/, message: "can only contain letters." }
+	validates :keyword_type, format: { with: /[a-zA-Z\s]+/, message: "can only contain letters." }
 	validates_length_of :keyword_type, maximum: 15
 
-	validates :purpose, format: { with: /[a-zA-Z0-9\s]+/, message: "can only contain letters." }
+	validates :purpose, format: { with: /[a-zA-Z\s]+/, message: "can only contain letters." }
 	validates_length_of :purpose, maximum: 15
 
 	validate :block_obscenity
 	validate :string_length
 	validate :make_sure_one_word
+	validate :subject_is_in_dictionary
+	validate :keyword_is_in_dictionary
+	validate :purpose_is_in_dictionary
+
+	def subject_is_in_dictionary
+		url = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/#{subject.last}?key=#{Rails.application.credentials.miriam_webster[:api_key]}"
+
+		uri = URI.parse(url)
+		response = Net::HTTP.get_response(uri)
+		dictionary_hash = JSON.parse(response.body)
+
+		byebug
+		if dictionary_hash[0].class != Hash
+			errors.add(:subject, "must be a real word")
+		end
+	end
+
+	def keyword_is_in_dictionary
+		url = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/#{keyword_type.last}?key=#{Rails.application.credentials.miriam_webster[:api_key]}"
+
+		uri = URI.parse(url)
+		response = Net::HTTP.get_response(uri)
+		dictionary_hash = JSON.parse(response.body)
+
+		if dictionary_hash[0].class != Hash
+			errors.add(:keyword, "must be a real word")
+		end
+	end
+
+	def purpose_is_in_dictionary
+		url = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/#{purpose.last}?key=#{Rails.application.credentials.miriam_webster[:api_key]}"
+
+		uri = URI.parse(url)
+		response = Net::HTTP.get_response(uri)
+		dictionary_hash = JSON.parse(response.body)
+
+		if dictionary_hash[0].class != Hash
+			errors.add(:purpose, "must be a real word")
+		end
+	end
+
 
 	def make_sure_one_word
 		if subject.last.split.length > 1
