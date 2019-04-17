@@ -16,6 +16,11 @@ class Api::V1::UserIdeasController < ApplicationController
   	end
   end
 
+  def destroy
+    @user_idea = UserIdea.find(params[:id])
+    @user_idea.destroy
+  end
+
   private
 
   def user_idea_params
