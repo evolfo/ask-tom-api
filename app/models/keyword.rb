@@ -10,6 +10,19 @@ class Keyword < ApplicationRecord
 
 	validate :block_obscenity
 	validate :string_length
+	validate :make_sure_one_word
+
+	def make_sure_one_word
+		if subject.last.split.length > 1
+			errors.add(:subject, "TOO LONG SLOW DOWN")
+		end
+		if purpose.last.split.length > 1
+			errors.add(:purpose, "TOO LONG SLOW DOWN")
+		end
+		if keyword_type.last.split.length > 1
+			errors.add(:keyword_type, "TOO LONG SLOW DOWN")
+		end
+	end
 
 	def string_length
 		if subject.last.length > 15 || keyword_type.last.length > 15 || purpose.last.length > 15

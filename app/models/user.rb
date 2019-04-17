@@ -9,6 +9,13 @@ class User < ApplicationRecord
 	validates_length_of :name, maximum: 12
 
 	validate :block_obscenity
+	validate :make_sure_one_word
+
+	def make_sure_one_word
+		if name.split.length > 1
+			errors.add(:name, "TOO LONG SLOW DOWN")
+		end
+	end
 
 	def block_obscenity
 		if swear_words.include?(name)
