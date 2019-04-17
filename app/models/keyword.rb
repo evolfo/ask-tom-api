@@ -4,13 +4,13 @@ require 'json'
 
 class Keyword < ApplicationRecord
 	validates :subject, format: { with: /[a-zA-Z\s]+/, message: "can only contain letters." }
-	validates_length_of :subject, maximum: 15
+	# validates_length_of :subject, maximum: 20
 
 	validates :keyword_type, format: { with: /[a-zA-Z\s]+/, message: "can only contain letters." }
-	validates_length_of :keyword_type, maximum: 15
+	# validates_length_of :keyword_type, maximum: 20
 
 	validates :purpose, format: { with: /[a-zA-Z\s]+/, message: "can only contain letters." }
-	validates_length_of :purpose, maximum: 15
+	# validates_length_of :purpose, maximum: 20
 
 	validate :block_obscenity
 	validate :string_length
