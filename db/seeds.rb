@@ -18,12 +18,16 @@ Tool.create([
 	name: "Phaser", language: "Javascript", difficulty: 9, mod: [3], purpose: "games",
 	name: "P5", language: "Javascript", difficulty: 7, mod: [3], purpose: "games",
 	name: "TTY Prompt", language: "Ruby", difficulty: 1, mod: [1], purpose: "cli",
-	name: "Three.js", language: "Javascript", difficulty: 10, mod: [3], purpose: "games",
+	name: "Three.js", language: "Javascript", difficulty: 10, mod: [3, 4, 5], purpose: "games",
+	name: "Pixi.js", language: "Javascript", difficulty: 9, mod: [3], purpose: "games",
 	name: "Bootstrap", language: "CSS", difficulty: 3, mod: [2, 3, 4, 5], purpose: "website",
-	name: "Semantic UI", language: "CSS", difficulty: 3, mod: [2, 3, 4, 5], purpose: "website"
+	name: "Pastel", language: "Ruby", difficulty: 1, mod: [1], purpose: "cli",
+	name: "Colorize", language: "Ruby", difficulty: 1, mod: [1], purpose: "cli",
+	name: "Semantic UI", language: "CSS", difficulty: 3, mod: [2, 3, 4, 5], purpose: "website",
+	name: "Bulma", language: "CSS", difficulty: 3, mod: [2, 3, 4, 5], purpose: "website"
 ])
 
-Keyword.create(subject: ['educational', 'meaningful', 'health care', 'sports', 'music', 'management'], keyword_type: ['Game', 'CLI', 'Todo List', 'Scheduler', 'Blog'], purpose: ['Dogs', 'Jeff', 'Kids', 'Musicians', 'Managers'])
+Keyword.create(subject: ['educational', 'meaningful', 'health care', 'sports', 'music', 'management', 'finance'], keyword_type: ['Game', 'CLI', 'Todo List', 'Scheduler', 'Blog'], purpose: ['Dogs', 'Jeff', 'Kids', 'Musicians', 'Managers', 'Athletes'])
 
 # idea1 = Idea.create(mod: 1, type: "Create an educational CLI with TTY Prompt for Dogs")
 # idea2 = Idea.create(mod: 2, type: "Create a health care scheduler with Bootstrap for Jeff")
