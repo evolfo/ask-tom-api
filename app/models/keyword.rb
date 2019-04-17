@@ -26,7 +26,6 @@ class Keyword < ApplicationRecord
 		response = Net::HTTP.get_response(uri)
 		dictionary_hash = JSON.parse(response.body)
 
-		byebug
 		if dictionary_hash[0].class != Hash
 			errors.add(:subject, "must be a real word")
 		end
