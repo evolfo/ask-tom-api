@@ -4,13 +4,10 @@ require 'json'
 
 class Keyword < ApplicationRecord
 	validates :subject, format: { with: /[a-zA-Z\s]+/, message: "can only contain letters." }
-	# validates_length_of :subject, maximum: 20
 
 	validates :keyword_type, format: { with: /[a-zA-Z\s]+/, message: "can only contain letters." }
-	# validates_length_of :keyword_type, maximum: 20
 
 	validates :purpose, format: { with: /[a-zA-Z\s]+/, message: "can only contain letters." }
-	# validates_length_of :purpose, maximum: 20
 
 	validate :block_obscenity
 	validate :string_length
@@ -20,6 +17,7 @@ class Keyword < ApplicationRecord
 	validate :purpose_is_in_dictionary
 
 	def subject_is_in_dictionary
+		puts subject.last
 		url = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/#{subject.last}?key=#{Rails.application.credentials.miriam_webster[:api_key]}"
 
 		uri = URI.parse(url)
